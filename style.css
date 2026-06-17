@@ -1,10 +1,210 @@
 *{
-    margin:0%;
-    padding:0%;
-    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:sans-serif;
 }
 
-html,body{
-    height: 100%;
-    width: 100%;
+body{
+    background:#0f172a;
+    color:white;
+    min-height:100vh;
+}
+
+/* NAVBAR */
+
+nav{
+    height:80px;
+    background:#1e293b;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 60px;
+}
+
+.logo{
+    font-size:1.5rem;
+}
+
+#create-btn{
+    border:none;
+    padding:12px 24px;
+    border-radius:10px;
+    cursor:pointer;
+
+    background:#3b82f6;
+    color:white;
+
+    font-size:1rem;
+}
+
+/* CARDS */
+
+.cards{
+
+    width:90%;
+    margin:40px auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+}
+
+/* CARD */
+
+.card{
+
+    background:#1e293b;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 10px 20px rgba(0,0,0,.3);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:15px;
+}
+
+.card-content h3{
+    margin-bottom:10px;
+}
+
+.price{
+    color:#38bdf8;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.desc{
+    color:#cbd5e1;
+    margin-bottom:15px;
+}
+
+.card-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.edit-btn,
+.delete-btn{
+
+    flex:1;
+
+    border:none;
+    padding:10px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+}
+
+.edit-btn{
+    background:#22c55e;
+    color:white;
+}
+
+.delete-btn{
+    background:#ef4444;
+    color:white;
+}
+
+/* FORM */
+
+.form{
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.7);
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:100;
+}
+
+.create-form{
+
+    width:450px;
+
+    background:white;
+    color:black;
+
+    border-radius:15px;
+
+    padding:25px;
+}
+
+.form-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.close-btn{
+
+    border:none;
+    background:none;
+
+    font-size:1.2rem;
+
+    cursor:pointer;
+}
+
+#form-data{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:15px;
+}
+
+#form-data input,
+#form-data textarea{
+
+    padding:12px;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+}
+
+#form-data textarea{
+
+    resize:none;
+    height:100px;
+}
+
+.create-product-btn{
+
+    border:none;
+
+    background:#3b82f6;
+
+    color:white;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    cursor:pointer;
 }

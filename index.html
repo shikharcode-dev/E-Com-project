@@ -3,14 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>E-Commerce CRUD</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
 
+    <!-- FORM -->
 
+    <div class="form">
+
+        <div class="create-form">
+
+            <div class="form-header">
+
+                <h2>Create Product</h2>
+
+                <button class="close-btn">
+                    ✕
+                </button>
+
+            </div>
+
+            <form id="form-data">
+
+                <input
+                    type="text"
+                    id="product-name"
+                    placeholder="Product Name"
+                >
+
+                <input
+                    type="number"
+                    id="product-price"
+                    placeholder="Product Price"
+                >
+
+                <input
+                    type="text"
+                    id="product-image"
+                    placeholder="Product Image URL"
+                >
+
+                <textarea
+                    id="product-desc"
+                    placeholder="Product Description"
+                ></textarea>
+
+                <button
+                    type="submit"
+                    class="create-product-btn"
+                >
+                    Create Product
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <h1 class="logo">
+            E-Commerce
+        </h1>
+
+        <button id="create-btn">
+            Create Product
+        </button>
+
+    </nav>
+
+    <!-- PRODUCT CARDS -->
+
+    <main>
+
+        <div class="cards">
+
+            <!-- Dynamic Cards -->
+
+        </div>
+
+    </main>
 
     <script src="script.js"></script>
+
 </body>
 </html>
