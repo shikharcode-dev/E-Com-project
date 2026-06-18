@@ -52,16 +52,20 @@ formData.addEventListener("submit", (event) => {
     if(updateIndex !== null){
         productsArr[updateIndex] = obj;
         updateIndex = null;
-        localStorage.setItem("products", JSON.stringify(productsArr)); // also put here taki update ke baad bhi store ho.
     }else{
         productsArr.push(obj);
-
-        // we start loacl storage for here got it, we connext our local storage to array
-        localStorage.setItem("products", JSON.stringify(productsArr));
     }
+
+    localStorage.setItem(
+        "products",
+        JSON.stringify(productsArr)
+    );
+
+
+
     if(productsArr.length > 0){
         createBtn.textContent = "Add More Products";
-    }
+    } // this is used when product created change button to Add More Products
 
     formData.reset();
 
