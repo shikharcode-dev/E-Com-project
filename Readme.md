@@ -153,7 +153,6 @@ Removes a selected product from the array and re-renders the UI.
 
 ### Local Storage
 
-```javascript
 localStorage.setItem()
 localStorage.getItem()
 JSON.stringify()
@@ -219,12 +218,10 @@ This project uses Local Storage to persist product data.
 
 ### Methods Used
 
-```javascript
 localStorage.setItem()
 localStorage.getItem()
 JSON.stringify()
 JSON.parse()
-```
 
 ---
 
