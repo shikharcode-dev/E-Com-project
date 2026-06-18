@@ -99,9 +99,7 @@ nav{
     display:grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(320px,320px));
-
-    justify-content:center;
+    repeat(auto-fit,minmax(280px,1fr));
 
     gap:30px;
 }
@@ -460,4 +458,116 @@ nav{
     min-width:200px;
 
     transition:.4s;
+}
+
+
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 768px){
+
+    nav{
+
+        padding:20px;
+
+        height:auto;
+
+        flex-direction:column;
+
+        gap:15px;
+    }
+
+    .logo{
+
+        font-size:1.5rem;
+    }
+
+    #create-btn{
+
+        width:100%;
+    }
+
+    .cards{
+
+        width:95%;
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+    }
+
+    .card{
+
+        width:100%;
+    }
+
+    .card img{
+
+        height:220px;
+    }
+
+    .create-form{
+
+        width:95%;
+
+        padding:20px;
+    }
+
+    .form-header h2{
+
+        font-size:1.3rem;
+    }
+
+    .card-buttons{
+
+        flex-direction:column;
+    }
+}
+
+@media (max-width: 480px){
+
+    nav{
+
+        padding:15px;
+    }
+
+    .logo{
+
+        font-size:1.3rem;
+        text-align:center;
+    }
+
+    #create-btn{
+
+        width:100%;
+
+        font-size:.95rem;
+
+        padding:12px;
+    }
+
+    .card-content h3{
+
+        font-size:1.1rem;
+    }
+
+    .price{
+
+        font-size:1rem;
+    }
+
+    .desc{
+
+        font-size:.9rem;
+    }
+
+    .card img{
+
+        height:200px;
+    }
+
+    .create-form{
+
+        border-radius:20px;
+    }
 }
