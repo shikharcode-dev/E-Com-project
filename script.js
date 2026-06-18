@@ -18,7 +18,10 @@ closeBtn.addEventListener("click", () => {
     form.style.display = "none";
 });
 
+
 const productsArr = [];
+let updateIndex = null;
+
 
 formData.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -45,10 +48,20 @@ formData.addEventListener("submit", (event) => {
         img: image
     };
 
-    productsArr.push(obj);
+    // so if update ke liye values aarahi hai to alag code hoga and update ke liye alag hoga
+    if(updateIndex !== null){
+        productsArr[updateIndex] = obj;
+        updateIndex = null;
+    }else{
+        productsArr.push(obj);
+    }
+    if(productsArr.length > 0){
+        createBtn.textContent = "Add More Products";
+    }
 
     formData.reset();
 
+    // i want ki ek bar banne par form apne aap remove hojaye
     form.style.display = "none";
 
     ui();
@@ -56,11 +69,19 @@ formData.addEventListener("submit", (event) => {
     console.log(productsArr);
 });
 
+
+
 function ui() {
+    // this will change the card when 1 product created to add more products
+    if(productsArr.length > 0){
+        createBtn.textContent = "Add More Products";
+    }else{
+        createBtn.textContent = "Create Product";
+    }
 
     card.innerHTML = "";
 
-    productsArr.forEach((product) => {
+    productsArr.forEach((product, index) => {
 
         card.innerHTML += `
             <div class="card">
@@ -81,11 +102,11 @@ function ui() {
 
                     <div class="card-buttons">
 
-                        <button class="edit-btn">
+                        <button onclick="update('${product.name}')" class="edit-btn">
                             Edit
                         </button>
 
-                        <button class="delete-btn">
+                        <button onclick="deleteProduct(${index})"  class="delete-btn">
                             Delete
                         </button>
 
@@ -96,5 +117,29 @@ function ui() {
             </div>
         `;
     });
+}
+
+// update code
+const update = (name) => {
+    form.style.display = "flex";
+
+    let product = productsArr.find(product => product.name === name);
+
+    // this is use for autofill the last value of form
+    productName.value = product.name;
+    productDesc.value = product.desc;
+    productPrice.value = product.price;
+    productImage.value = product.img;
+
+    // it will prevent if more card are avablable so we update each card according to that.
+    updateIndex = productsArr.findIndex(product => product.name === name)
+
+    console.log(product);
 };
 
+
+// delete code
+const deleteProduct = (index) => {
+    productsArr.splice(index, 1);
+    ui();
+}
