@@ -19,7 +19,7 @@ closeBtn.addEventListener("click", () => {
 });
 
 
-const productsArr = [];
+const productsArr = JSON.parse(localStorage.getItem("products")) || []; // here we select L.S. taki diplay of card proper ho also here my array dirrect connect with L.S.
 let updateIndex = null;
 
 
@@ -52,8 +52,12 @@ formData.addEventListener("submit", (event) => {
     if(updateIndex !== null){
         productsArr[updateIndex] = obj;
         updateIndex = null;
+        localStorage.setItem("products", JSON.stringify(productsArr)); // also put here taki update ke baad bhi store ho.
     }else{
         productsArr.push(obj);
+
+        // we start loacl storage for here got it, we connext our local storage to array
+        localStorage.setItem("products", JSON.stringify(productsArr));
     }
     if(productsArr.length > 0){
         createBtn.textContent = "Add More Products";
@@ -118,7 +122,7 @@ function ui() {
         `;
     });
 }
-
+ui(); // for L.S. work ki value rakhe proper se... at gloubely
 // update code
 const update = (name) => {
     form.style.display = "flex";
@@ -141,5 +145,7 @@ const update = (name) => {
 // delete code
 const deleteProduct = (index) => {
     productsArr.splice(index, 1);
+    
+    localStorage.setItem("products", JSON.stringify(productsArr));
     ui();
 }
